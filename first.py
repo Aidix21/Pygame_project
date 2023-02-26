@@ -107,8 +107,7 @@ while running:
         if bg_x == -720:
             bg_x = 0
 
-        if keys[pygame.K_SPACE]:
-            bullets.append(bullet.get_rect(topleft=(player_x + 30, player_y + 10)))
+
 
         if bullets:
             for (i, el) in enumerate(bullets):
@@ -119,8 +118,10 @@ while running:
                     bullets.pop(i)
 
                 if ghost_list:
-                    for (index, ghost) in enumerate(ghost_list):
-                        if el.colliderect(ghost):
+                    for (index, ghost_el) in enumerate(ghost_list):
+                        if el.colliderect(ghost_el):
+                            ghost_list.pop(index)
+                            bullets.pop(i)
 
 
     else:
@@ -145,3 +146,5 @@ while running:
             pygame.quit()
         if event.type == ghost_timer:
             ghost_list.append(ghost.get_rect(topleft=(740, 240)))
+        if gameplay and event.type == pygame.KEYUP and event.key == pygame.K_SPACE:
+            bullets.append(bullet.get_rect(topleft=(player_x + 30, player_y + 10)))
