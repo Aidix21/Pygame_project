@@ -51,7 +51,7 @@ ghost_timer = pygame.USEREVENT + 1
 
 gameplay = True
 
-label = pygame.font.Font('fonts/Lato-Regular.ttf', 40)
+label = pygame.font.Font('data/Lato-Regular.ttf', 40)
 
 start_label = label.render('GO!!!', False, (66, 189, 187))
 start_label_rect = start_label.get_rect(topleft=(270, 150))
