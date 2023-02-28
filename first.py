@@ -11,7 +11,7 @@ pygame.display.set_icon(icon)
 
 bg = pygame.image.load('images/bg.jpg').convert()
 
-ghost  = pygame.image.load('images/ghost.png').convert_alpha()
+ghost = pygame.image.load('images/ghost.png').convert_alpha()
 ghost_list = []
 
 walk_left = [
@@ -139,8 +139,6 @@ while running:
             if bg_x == -720:
                 bg_x = 0
 
-
-
             if bullets:
                 for (i, el) in enumerate(bullets):
                     screen.blit(bullet, (el.x, el.y))
@@ -157,8 +155,6 @@ while running:
                                 score += 100
                                 if score > top_score:
                                     top_score = score
-
-
 
         else:
             screen.fill((87, 88, 89))
@@ -181,8 +177,6 @@ while running:
     pygame.display.update()
 
     clock.tick(10)
-
-
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
